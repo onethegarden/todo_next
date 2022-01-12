@@ -1,0 +1,201 @@
+$beige: #FCF8E8;
+$creamTeal: #c6bd9c;
+$pastelPeach: #ECB390;
+$peach: #DF7861;
+$gray: 	#909090;
+
+body{
+    background-color: $beige;
+    color: $gray;
+}
+ul{
+    padding:0;
+}
+ul li{
+    list-style: none;
+}
+button{
+    border: none;
+    background-color: transparent;
+    cursor:pointer;
+}
+input{
+    &:focus{
+        outline: none;
+    }
+}
+div{
+    box-sizing: border-box;
+}
+.App{
+    margin:0 auto;
+    max-width: 30rem;
+    margin-top: 5rem;
+    h1{
+        color: $peach
+    }
+}
+
+.main{
+    .inputWrapper, .listWrapper{
+        background-color: white;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-radius: 0.3rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.inputWrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    input{
+        border: 0px solid;
+        height: 2rem;
+        font-size: 1.2rem;
+        margin: 0.2rem 1rem;
+        width:100%;
+    }
+    button{
+        cursor: pointer;
+        background-color: $peach;
+        font-size:1.2rem;
+        width:1.8rem;
+        height:1.8rem;
+        border-radius: 50%;
+        color: $beige;
+        align-self: center;
+        margin-right:1rem;
+    }
+
+}
+
+.listWrapper{
+    padding: 0.2rem 1rem;
+    li{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height:2rem;
+        padding: 0.4rem 0 ;
+        border-bottom: $beige solid 0.1rem;
+        &.done{
+            .toggle{
+                background-color: $pastelPeach;
+                &:before{
+                    content:'✔';
+                    color: white;
+                    font-size: 1.1rem;
+                }
+            }
+        }
+        form{
+            width:100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+    }
+    span{
+        width:100%;
+        text-align: left;
+    }
+    input{
+        border: 1px solid $creamTeal;
+        height: 2rem;
+        padding-left: 0.5rem;
+        font-size: 1.2rem;
+        width:90%;
+        color: $gray;
+        box-sizing: border-box;
+    }
+    .toggle{
+        width:100%;
+        border: 1px solid $pastelPeach;
+        width:2rem;
+        height:1.8rem;
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+    .delete{
+        font-size:1.5rem;
+        color: $creamTeal;
+        
+    }
+
+}
+
+
+// laoding
+
+.loadingWrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.loader {
+    position: relative;
+    width: 2.5em;
+    height: 2.5em;
+    transform: rotate(165deg);
+}
+.loader:before, .loader:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 0.25em;
+    transform: translate(-50%, -50%);
+}
+.loader:before {
+    animation: before 2s infinite;
+}
+.loader:after {
+    animation: after 2s infinite;
+}
+
+@keyframes before {
+  0% {
+    width: 0.5em;
+    box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+  35% {
+    width: 2.5em;
+    box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+  }
+  70% {
+    width: 0.5em;
+    box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+  100% {
+    box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+}
+@keyframes after {
+  0% {
+    height: 0.5em;
+    box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+  }
+  35% {
+    height: 2.5em;
+    box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+  }
+  70% {
+    height: 0.5em;
+    box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+  }
+  100% {
+    box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+  }
+}
+
+.loader {
+    position: absolute;
+    top: calc(50% - 1.25em);
+    left: calc(50% - 1.25em);
+}

@@ -1,20 +1,15 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import TodoLayout from "../src/components/common/TodoLayout";
+import TodoInput from "../src/components/todo/TodoInput";
+import TodoList from "../src/components/todo/TodoList";
 
-const Home: NextPage = () => {
+function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>next-todo</title>
-        <meta name="description" content="next로 만드는 todoApp" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <TodoLayout>
       <h1>next-todo</h1>
-    </div>
+      <TodoInput />
+      <TodoList />
+    </TodoLayout>
   );
-};
+}
 
 export default Home;
