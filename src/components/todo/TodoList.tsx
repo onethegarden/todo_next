@@ -1,20 +1,14 @@
 import React from "react";
+import TodoItem from "./TodoItem";
 
-const TodoList = (): JSX.Element => {
+function TodoList() {
   return (
     <div className="listWrapper">
       <ul data-testid="TodoList">
-        <li className="done">
-          내용
-          <button data-testid="toggle" className="toggle" type="button">
-            toggle
-          </button>
-          <button className="delete" type="button">
-            ×
-          </button>
-        </li>
+        <TodoItem />
+        <TodoItem />
       </ul>
     </div>
   );
-};
+}
 export default TodoList;
