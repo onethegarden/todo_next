@@ -1,13 +1,13 @@
 import TodoLayout from "../src/components/common/TodoLayout";
-import TodoInput from "../src/components/todo/TodoInput";
-import TodoList from "../src/components/todo/TodoList";
+import Link from "next/link";
 
 function Home() {
   return (
     <TodoLayout>
       <h1>next-todo</h1>
-      <TodoInput />
-      <TodoList />
+      <Link href="default-todo">default todo</Link>
+      <br />
+      <Link href="server-side-todo">server-side todo</Link>
     </TodoLayout>
   );
 }
