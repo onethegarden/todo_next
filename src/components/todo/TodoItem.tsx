@@ -1,10 +1,11 @@
 import React from "react";
 import { BsPencil } from "react-icons/bs";
+import { Todo } from "../../model/todo";
 
-function TodoItem() {
+function TodoItem({ todo }: { todo: Todo }) {
   return (
     <li className="done">
-      <span>내용</span>
+      <span>{todo.content}</span>
       <button data-testid="edit" className="editable" type="button">
         <BsPencil />
       </button>
