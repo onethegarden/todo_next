@@ -1,11 +1,15 @@
 import axios from "axios";
 import { Todo } from "../model/todo";
-
-export const BASE_URI = "http://localhost:3000";
+import TodoGenerator from "../utils/TodoGenerator";
 
 const todoAPI = {
   todoList: async (): Promise<Todo[]> => {
-    return (await axios.get<Todo[]>(`${BASE_URI}/api/todo`)).data;
+    //return (await axios.get<Todo[]>(`/api/todo`)).data;
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(TodoGenerator({ length: 500 }));
+      }, 500);
+    });
   },
 };
 
