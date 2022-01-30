@@ -1,9 +1,13 @@
 import { Todo } from "../model/todo";
 
-function TodoGenerator() {
+interface Props {
+  length: number;
+}
+
+function TodoGenerator({ length }: Props) {
   const todoDummy: Todo[] = [];
 
-  for (let i = 1; i < 501; i++) {
+  for (let i = 1; i < length + 1; i++) {
     todoDummy.push({
       id: i,
       createdAt: String(new Date()),
@@ -13,10 +17,7 @@ function TodoGenerator() {
     });
   }
 
-  return (
-    <div>
-      <textarea>{JSON.stringify(todoDummy)}</textarea>
-    </div>
-  );
+  return todoDummy;
 }
+
 export default TodoGenerator;

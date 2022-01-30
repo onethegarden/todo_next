@@ -8,6 +8,8 @@ function Home() {
       <Link href="default-todo">default todo</Link>
       <br />
       <Link href="server-side-todo">server-side todo</Link>
+      <br />
+      <Link href="static-props-todo">static-props-todo</Link>
     </TodoLayout>
   );
 }
