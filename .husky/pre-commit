@@ -1,26 +1,12 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+# #!/bin/sh
+# . "$(dirname "$0")/_/husky.sh"
 
-[ -n "$CI" ] && exit 0
+# [ -n "$CI" ] && exit 0
 
-branch=$(git branch --show-current)
-if [ "$branch" == "main" ]
-then
-  echo "You can't commit directly to master branch"
-  exit 1;
-fi
+# branch=$(git branch --show-current)
+# if [ "$branch" == "main" ]
+# then
+#   echo "You can't commit directly to master branch"
+#   exit 1;
+# fi
 
-COMMIT_MSG_FILE=$1
-
-branch_name=`git symbolic-ref --short HEAD`
-service_name=`echo ${branch_name} | cut -d '-' -f1`
-issue_number=`echo ${branch_name} | cut -d '-' -f2`
-first_line=`head -n1 ${COMMIT_MSG_FILE}`
-
-
-echo $first_line
-
-if [ -z "$first_line" ]; then
-  echo ${COMMIT_MSG_FILE}
-  sed -i '.bak' -e "s/^/[#$issue_number] /" ${COMMIT_MSG_FILE}
-fi
